@@ -1,6 +1,7 @@
 from fastapi import FastAPI, responses
 from datetime import datetime
 from humanize import naturalsize
+import GPUtil
 import requests
 import os
 import psutil
@@ -46,7 +47,11 @@ def get_cpu_cores():
 
 
 def get_gpu_type():
-    return "Not available yet"
+    gpus = GPUtil.getGPUs()
+    if not gpus:
+        return "No GPU found"
+    else:
+        return gpus[0].name
 
 
 def get_memory_size():
