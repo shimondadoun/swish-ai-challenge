@@ -13,3 +13,7 @@ variable "k8s_address" {
 variable "replicas" {
   type = string
 }
+
+variable "config_context" {
+  type = string
+}

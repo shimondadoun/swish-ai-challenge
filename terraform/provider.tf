@@ -12,5 +12,6 @@ terraform {
 }
 
 provider "kubernetes" {
-  host = var.k8s_address
+  config_context = var.config_context
+  host           = var.k8s_address
 }
